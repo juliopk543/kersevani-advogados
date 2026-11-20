@@ -132,3 +132,7 @@ html { scroll-behavior: smooth; }
 /* Retrato do fundador (no lugar da lista de credenciais) */
 .kv-retrato { margin: 10px 0 28px; }
 .kv-retrato img { display: block; width: 100%; max-width: 380px; height: auto; border: 1px solid rgba(207, 171, 104, .6); box-shadow: 0 14px 34px rgba(0, 0, 0, .35); }
+
+/* Quadro do logo no cabeçalho: fundo escuro (preto) */
+.elementor-535 .elementor-element.elementor-element-d214c12:not(.elementor-motion-effects-element-type-background) > .elementor-widget-wrap,
+.elementor-535 .elementor-element.elementor-element-d214c12 > .elementor-widget-wrap > .elementor-motion-effects-container > .elementor-motion-effects-layer { background-color: #0b0b0b !important; background-image: linear-gradient(180deg, #161616 0%, #000 100%) !important; }
