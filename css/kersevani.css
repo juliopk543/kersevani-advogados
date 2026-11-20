@@ -1,0 +1,134 @@
+/* Ajustes do Kersevani Advogados sobre o modelo */
+html { scroll-behavior: smooth; }
+.kv-creds ul { list-style: none; margin: 10px 0 28px; padding: 0; display: grid; gap: 12px; }
+.kv-creds li {
+  position: relative; padding-left: 26px;
+  font-family: "Mulish", sans-serif; font-weight: 600; color: #fff;
+}
+.kv-creds li::before {
+  content: ""; position: absolute; left: 0; top: .55em; width: 9px; height: 9px;
+  background: var(--e-global-color-accent, #CFAB68); transform: rotate(45deg);
+}
+/* Hero: slideshow do modelo (3 fotos em fade). As 3 camadas carregam desde o início,
+   então não há quadro vazio na troca. A sobreposição escura é a do próprio modelo. */
+.elementor-element-465f6ace { overflow: hidden; }
+.kv-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.kv-hero-bg span { position: absolute; inset: 0; background: center / cover no-repeat; opacity: 0; animation: kv-hero 15s infinite; }
+.kv-hero-bg span:nth-child(1) { background-image: url("../images/hero-1.jpg"); animation-name: kv-hero-1; }
+.kv-hero-bg span:nth-child(2) { background-image: url("../images/hero-2.jpg"); animation-delay: 5s; }
+.kv-hero-bg span:nth-child(3) { background-image: url("../images/hero-3.jpg"); animation-delay: 10s; }
+@keyframes kv-hero   { 0% { opacity: 0; } 6%, 33% { opacity: 1; } 40%, 100% { opacity: 0; } }
+@keyframes kv-hero-1 { 0%, 33% { opacity: 1; } 40%, 93% { opacity: 0; } 100% { opacity: 1; } }
+.elementor-element-465f6ace > .elementor-container { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .kv-hero-bg span { animation: none !important; } .kv-hero-bg span:nth-child(1) { opacity: 1; } }
+
+/* Faixa de áreas (no lugar dos logos de prêmios) */
+.kv-faixa { width: 100%; padding: 28px 24px; text-align: center; }
+.kv-faixa__kicker {
+  margin: 0 0 8px; font: 700 14px/1.4 "Mulish", sans-serif; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--e-global-color-accent, #CFAB68);
+}
+.kv-faixa__txt {
+  margin: 0; font: 700 26px/1.35 "Quattrocento", Georgia, serif;
+  color: var(--e-global-color-primary, #2D0F0E);
+}
+
+@media (max-width: 767px) {
+  .kv-faixa__txt { font-size: 20px; }
+}
+
+/* Cards de áreas: o modelo sobrepunha a galeria seguinte (removida) */
+.elementor-element-4b54dd5 { margin-bottom: 0 !important; position: relative; z-index: 2; }
+.elementor-element-7279d1be { padding-bottom: 100px !important; }
+@media (max-width: 1024px) { .elementor-element-7279d1be { padding-bottom: 60px !important; } }
+
+/* Foto do "Sobre": a margem negativa servia para o contador removido */
+.elementor-element-e7c9504 > .elementor-widget-container { margin: 0 !important; }
+
+/* Card único "Perto de você" (a coluna do contador foi removida) */
+.elementor-element-3d38d2a { width: 100% !important; }
+
+/* Botões do banner: mesma largura e alinhados */
+.elementor-element-6cc3d925 .jeg-elementor-kit.jkit-button .jkit-button-wrapper,
+.elementor-element-1a0ee942 .jeg-elementor-kit.jkit-button .jkit-button-wrapper {
+  display: block !important; box-sizing: border-box !important; width: 220px !important; padding-left: 0 !important; padding-right: 0 !important; text-align: center !important;
+}
+@media (min-width: 1025px) { .elementor-element-e3ab767 > .elementor-container { max-width: 364px !important; margin-left: auto !important; } }
+@media (max-width: 767px) {
+  .elementor-element-6cc3d925 > .elementor-widget-container,
+  .elementor-element-1a0ee942 > .elementor-widget-container { margin-right: 0 !important; }
+}
+
+/* Manifesto / código de conduta (Sobre) */
+.kv-codigo ol { list-style: none; counter-reset: kv; margin: 8px 0 28px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 22px 30px; }
+.kv-codigo li { counter-increment: kv; position: relative; padding-top: 34px; }
+.kv-codigo li::before {
+  content: "0" counter(kv); position: absolute; top: 0; left: 0;
+  font: 400 22px/1 "Quattrocento", Georgia, serif; font-style: italic; color: var(--e-global-color-accent, #CFAB68);
+}
+.kv-codigo strong { display: block; margin-bottom: 4px; font: 700 20px/1.2 "Quattrocento", Georgia, serif; color: var(--e-global-color-primary, #2D0F0E); }
+.kv-codigo span { display: block; font: 400 15px/1.55 "Mulish", sans-serif; color: var(--e-global-color-text, #7C7C7C); }
+@media (max-width: 767px) { .kv-codigo ol { grid-template-columns: 1fr; gap: 18px; } }
+.kv-codigo { padding-bottom: 14px; margin-bottom: 26px; border-bottom: 1px solid #ddd; }
+.kv-codigo ol { margin-bottom: 0; }
+
+/* Slide dos princípios do manifesto (fade) */
+.kv-slider { position: relative; margin: 6px 0 10px; padding: 0 44px; }
+.kv-slides { display: grid; }
+.kv-slide { grid-area: 1 / 1; text-align: center; padding: 0 0 18px; }
+.kv-slider.kv-on .kv-slide { opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility .6s; }
+.kv-slider.kv-on .kv-slide.is-active { opacity: 1; visibility: visible; }
+.kv-slider:not(.kv-on) .kv-slide:not(:first-child) { display: none; }
+.kv-louro { position: relative; width: 150px; height: 150px; margin: 0 auto 10px; }
+.kv-louro img { width: 100%; height: 100%; display: block; }
+.kv-louro b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: 400 italic 34px/1 "Quattrocento", Georgia, serif; color: var(--e-global-color-accent, #CFAB68); }
+.kv-slide strong { display: block; margin-bottom: 6px; font: 700 22px/1.2 "Quattrocento", Georgia, serif; color: var(--e-global-color-primary, #2D0F0E); }
+.kv-slide span { display: block; max-width: 380px; margin: 0 auto; font: 400 15px/1.55 "Mulish", sans-serif; color: var(--e-global-color-text, #7C7C7C); }
+.kv-slider .kv-prev, .kv-slider .kv-next { position: absolute; top: 62px; width: 34px; height: 34px; padding: 0; border: 1px solid var(--e-global-color-accent, #CFAB68); background: transparent; color: var(--e-global-color-accent, #CFAB68); font: 400 18px/1 "Mulish", sans-serif; cursor: pointer; transition: background .2s, color .2s; }
+.kv-slider .kv-prev { left: 0; } .kv-slider .kv-next { right: 0; }
+.kv-slider .kv-prev:hover, .kv-slider .kv-next:hover { background: var(--e-global-color-accent, #CFAB68); color: #2D0F0E; }
+.kv-dots { display: flex; justify-content: center; gap: 10px; padding: 0 0 18px; }
+.kv-dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: #d8d8d8; cursor: pointer; }
+.kv-dots button[aria-current="true"] { background: var(--e-global-color-accent, #CFAB68); }
+@media (max-width: 767px) { .kv-slider { padding: 0 38px; } .kv-louro { width: 130px; height: 130px; } .kv-slider .kv-prev, .kv-slider .kv-next { top: 52px; } }
+
+/* Áreas de atuação: layout original do modelo; a cor (estado "hover") passa de card em card */
+.elementor-element-4b54dd5 .jkit-icon-box-wrapper { transition: background .6s ease, padding .5s ease; }
+.elementor-element-4b54dd5 .jkit-icon-box-wrapper.kv-hot { background-color: transparent !important; background-image: radial-gradient(at top left, var(--e-global-color-ff4eb10, #6F1313) 20%, var(--e-global-color-secondary, #4F100E) 100%) !important; padding: 14px 20px 36px 30px !important; }
+.elementor-element-4b54dd5 .jkit-icon-box-wrapper.kv-hot .title { color: var(--e-global-color-0fdca60, #fff) !important; }
+.elementor-element-4b54dd5 .jkit-icon-box-wrapper.kv-hot .icon-box-description { color: var(--e-global-color-49dadb5, #EAEAEA) !important; }
+.elementor-element-4b54dd5 .jkit-icon-box-wrapper.kv-hot .icon-box-button.hover .btn-wrapper .icon-box-link { opacity: 1; }
+.elementor-element-4b54dd5 .jkit-icon-box-wrapper.kv-hot .hover-watermark { bottom: 0; opacity: 1; }
+/* o card "Direito Civil" era vermelho fixo no modelo: agora só fica vermelho quando é o da vez ou com o mouse */
+.kv-areas-cycle .elementor-element-5045558 .jkit-icon-box-wrapper:not(.kv-hot):not(:hover) { background-image: none !important; background-color: var(--e-global-color-9a3b117, #EAEAEA) !important; }
+.kv-areas-cycle .elementor-element-5045558 .jkit-icon-box-wrapper:not(.kv-hot):not(:hover) .title { color: var(--e-global-color-primary, #2D0F0E) !important; }
+.kv-areas-cycle .elementor-element-5045558 .jkit-icon-box-wrapper:not(.kv-hot):not(:hover) .icon-box-description { color: var(--e-global-color-text, #7C7C7C) !important; }
+
+/* Fundador: coluna única (a imagem da direita foi removida) */
+.elementor-element-25399353 { width: 100% !important; }
+.elementor-element-25399353 > .elementor-widget-wrap { max-width: 680px; }
+.elementor-element-1f6fe08b { padding-bottom: 130px !important; }
+@media (max-width: 767px) { .elementor-element-1f6fe08b { padding-bottom: 70px !important; } }
+
+/* Card "Onde atendemos": estado em destaque + cidades, uma linha por estado */
+.elementor-element-3d38d2a .jkit-icon-box-wrapper, .elementor-element-3d38d2a .jkit-icon-box-wrapper:hover { padding: 24px 28px 22px !important; text-align: left !important; }
+.elementor-element-3d38d2a .jkit-icon-box-wrapper .title { margin: 0 0 12px !important; font: 700 24px/1.2 "Quattrocento", Georgia, serif !important; color: #fff !important; }
+.elementor-element-3d38d2a .jkit-icon-box-wrapper .icon-box-description { margin: 0 !important; }
+.elementor-element-3d38d2a .kv-uf { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: baseline; padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, .2); font: 400 15px/1.45 "Mulish", sans-serif; color: #fff; }
+.elementor-element-3d38d2a .kv-uf b { font: 700 13px/1 "Mulish", sans-serif; letter-spacing: 2px; color: #fff; }
+.elementor-element-3d38d2a .jkit-icon-box-wrapper .icon-box-button .icon-box-link { font-size: 13px !important; }
+
+/* Selo "26 anos de atividade" sobre a foto do Sobre (canto esquerdo) */
+.elementor-element-e7c9504 > .elementor-widget-container { position: relative; }
+.kv-anos { position: absolute; left: 0; bottom: 36px; display: flex; align-items: center; gap: 14px; padding: 18px 26px 18px 22px; color: #fff; background: radial-gradient(at top left, var(--e-global-color-ff4eb10, #6F1313) 20%, var(--e-global-color-secondary, #4F100E) 100%); box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
+.kv-anos b { font: 700 56px/1 "Quattrocento", Georgia, serif; color: var(--e-global-color-accent, #CFAB68); }
+.kv-anos span { font: 700 14px/1.35 "Mulish", sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+@media (max-width: 767px) { .kv-anos { bottom: 20px; padding: 14px 20px 14px 16px; } .kv-anos b { font-size: 44px; } .kv-anos span { font-size: 12px; } }
+
+/* Slide do manifesto: botão da direita sempre preenchido (cor do estado "hover") */
+.kv-slider .kv-next, .kv-slider .kv-next:hover, .kv-slider .kv-next:focus { background: var(--e-global-color-accent, #CFAB68); color: #2D0F0E; outline: 0; }
+.kv-slider .kv-next:focus-visible { outline: 2px solid var(--e-global-color-accent, #CFAB68); outline-offset: 2px; }
+
+/* Retrato do fundador (no lugar da lista de credenciais) */
+.kv-retrato { margin: 10px 0 28px; }
+.kv-retrato img { display: block; width: 100%; max-width: 380px; height: auto; border: 1px solid rgba(207, 171, 104, .6); box-shadow: 0 14px 34px rgba(0, 0, 0, .35); }
