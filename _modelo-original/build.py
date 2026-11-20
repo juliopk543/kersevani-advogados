@@ -76,7 +76,14 @@ TBD_END = 'Endereço a definir'
 
 # ---------------- <head> ----------------
 s = s.replace('<html lang="en-US">', '<html lang="pt-BR">', 1)
-s = re.sub(r'<title>.*?</title>', '<title>Kersevani Advogados</title>\n<meta name="description" content="Kersevani Advogados — Direito Público, Empresarial, Previdenciário, Trabalhista e Civil.">', s, count=1, flags=re.S)
+NL = chr(10)
+s = re.sub(r'<title>.*?</title>', ('<title>Kersevani Advogados</title>' + NL +
+           '<meta name="description" content="Kersevani Advogados — Direito Público, Empresarial, Previdenciário, Trabalhista e Civil.">' + NL +
+           '<meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Kersevani Advogados">' + NL +
+           '<meta property="og:title" content="Kersevani Advogados"><meta property="og:description" content="Advocacia especializada em Direito Público, Empresarial, Previdenciário, Trabalhista e Civil.">' + NL +
+           '<meta property="og:url" content="https://juliopk543.github.io/kersevani-advogados/"><meta property="og:image" content="https://juliopk543.github.io/kersevani-advogados/images/previa-link.png">' + NL +
+           '<meta property="og:image:type" content="image/png"><meta property="og:image:width" content="405"><meta property="og:image:height" content="295"><meta property="og:image:alt" content="Kersevani Advogados — advocacia especializada">' + NL +
+           '<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Kersevani Advogados"><meta name="twitter:image" content="https://juliopk543.github.io/kersevani-advogados/images/previa-link.png">').replace('NL_', ''), s, count=1, flags=re.S)
 s = re.sub(r'<link rel="(profile|pingback|alternate|https://api.w.org/|EditURI|shortlink|canonical)"[^>]*>\s*', '', s)
 s = s.replace('</head>', '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
